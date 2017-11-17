@@ -2,7 +2,9 @@ FROM debian:9.2
 
 RUN apt-get update && apt-get install -y \
     git \
-    sudo && \
+    sudo \
+    wget \
+    curl && \
     rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/lnls-sirius/epics-dev.git /tmp/epics-dev && \
