@@ -1,5 +1,7 @@
 FROM centos:7.4.1708
 
+ENV COMMIT v0.4.2
+
 RUN yum install -y \
     git \
     sudo \
@@ -8,7 +10,7 @@ RUN yum install -y \
     telnet && \
     git clone https://github.com/lnls-sirius/epics-dev.git /tmp/epics-dev && \
     cd /tmp/epics-dev && \
-    git checkout 6043ec252397852a4782e0df0f0cc96e851eeaa6 && \
+    git checkout ${COMMIT} && \
     ./run-all.sh -o -i -c -s yes && \
     yum clean all && \
     rm -rf /var/cache/yum
