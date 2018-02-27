@@ -1,6 +1,6 @@
 FROM debian:9.2
 
-ENV COMMIT v0.4.4
+ENV COMMIT v0.4.5
 
 RUN apt-get update && apt-get install -y \
     git \
