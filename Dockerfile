@@ -12,4 +12,6 @@ RUN apt-get update && apt-get install -y \
     cd /tmp/epics-dev && \
     git checkout ${COMMIT} && \
     ./run-all.sh -o -i -c -s yes && \
+    cd / && \
+    rm -rf /tmp/epics-dev && \
     rm -rf /var/lib/apt/lists/*
