@@ -1,4 +1,4 @@
-FROM debian:9.2
+FROM debian:9.5
 
 ENV COMMIT base-3.15
 
