@@ -1,0 +1,22 @@
+version: "3.7"
+x-environment:
+  &default-labels
+  br.com.lnls-sirius.department: ${DEPARTMENT}
+  org.opencontainers.image.authors: ${AUTHOR}
+  org.opencontainers.image.created: ${BUILD_DATE_RFC339}
+  org.opencontainers.image.licenses: ${LICENSE}
+  org.opencontainers.image.revision: ${COMMIT_HASH}
+  org.opencontainers.image.source: ${REPOSITORY}
+  org.opencontainers.image.url: ${REPOSITORY}
+  org.opencontainers.image.vendor: ${VENDOR}
+
+services:
+  base-3.15-debian-9.13:
+    image: ${DOCKER_IMAGE_PREFIX}/epics-deps:base-3.15-debian-9.13
+    build:
+      context: .
+      dockerfile: "./debian/Dockerfile.base-3.15-debian-9.13"
+      labels:
+        <<: *default-labels
+        org.opencontainers.image.version: epics-deps:base-3.15-debian-9.13
+
