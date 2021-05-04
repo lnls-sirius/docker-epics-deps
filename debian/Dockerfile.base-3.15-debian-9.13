@@ -1,7 +1,8 @@
 FROM debian:9.13
 
 ENV COMMIT base-3.15
-ENV APT_PROXY_SERVER TA-TiRack-CO-FWSrv-1.abtlus.org.br:3142
+
+ARG APT_PROXY_SERVER=TA-TiRack-CO-FWSrv-1.abtlus.org.br:3142
 
 RUN set -x; \
     echo "Acquire::http { Proxy \"http://${APT_PROXY_SERVER}\"; }" > /etc/apt/apt.conf.d/proxy ;\
