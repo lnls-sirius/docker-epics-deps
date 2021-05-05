@@ -11,6 +11,26 @@ x-environment:
   org.opencontainers.image.vendor: ${VENDOR}
 
 services:
+  # Lattest
+  base-3.15-debian-9:
+    image: ${DOCKER_IMAGE_PREFIX}/epics-deps:base-3.15-debian-9
+    build:
+      context: .
+      dockerfile: "./debian/Dockerfile.base-3.15-debian-9"
+      labels:
+        <<: *default-labels
+        org.opencontainers.image.version: epics-deps:base-3.15-debian-9
+
+  base-7.0-debian-9:
+    image: ${DOCKER_IMAGE_PREFIX}/epics-deps:base-7.0-debian-9
+    build:
+      context: .
+      dockerfile: "./debian/Dockerfile.base-7.0-debian-9"
+      labels:
+        <<: *default-labels
+        org.opencontainers.image.version: epics-deps:base-7.0-debian-9
+
+  # Release specific
   base-3.15-debian-9.13:
     image: ${DOCKER_IMAGE_PREFIX}/epics-deps:base-3.15-debian-9.13
     build:
